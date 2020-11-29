@@ -140,9 +140,9 @@ def handle_message(event):
 def handle_postback(event , backdata):
     to = event.source.user_id
     ts = event.postback.data
-    if backdata.get('mode') = 'date' :
+    if backdata.get('mode') == 'date':
         dt = event.postback.params.get('date')
-    elif backdata.get('mode') = 'datetime' :
+    elif backdata.get('mode') == 'datetime' :
         dt = datetime.datetime.strptime(event.postback.params.get('datetime'),'%Y - %m - %d T %H:%M')
         dt = datetime.datetime.strftime('{d}%Y - %m - %d ,{t} %H:%M').format(d = '日期為：',t = '時間為：')
     line_bot_api.push_message(to, TextSendMessage(text= "回應是"+dt))

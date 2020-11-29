@@ -6,8 +6,10 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
-from linebot.models import *
 
+from linebot.models import *
+import urllib.request as r
+import re
 
 #======這裡是呼叫的檔案內容=====
 from message import *
@@ -117,7 +119,7 @@ def handle_message(event):
         # preview_image_url是外面看到的
     elif event.message.text == "影片":
 
-        line_bot_api.reply_message(event.reply_token , VideoSendMessage(original_content_url= yvideo()[0], preview_image_url= yvideo()[1]))
+        line_bot_api.reply_message(event.reply_token , VideoSendMessage(original_content_url=yvideo()[0], preview_image_url=yvideo()[1]))
       
 
  

@@ -52,7 +52,7 @@ def handle_message(event):
         message = TemplateSendMessage(
             alt_text='Buttons Template',
             template=ButtonsTemplate(
-                title='RE0',
+                title='RE:0',
                 text='雷姆超棒',
                 thumbnail_image_url='https://cf.shopee.tw/file/ba20f2e96d5f8f6c0b386a077e21a020',
                 actions=[

@@ -44,3 +44,4 @@ for i in tokens:
 masks = np.array([judge])
 predicts = model.predict([indices, segments, masks])[0].argmax(axis=-1).tolist()
 print("Fill with: ", list(map(lambda x: token_dict_inv[x], predicts[0][4:6])))
+

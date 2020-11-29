@@ -62,7 +62,7 @@ def handle_message(event):
                     )  ,
                         
                     URITemplateAction(
-                        label='其他教',
+                        label='其他教(鬼滅)',
                         uri='https://www.youtube.com/watch?v=ikT1O4plOf4'
                     )  ,
                     PostbackTemplateAction(

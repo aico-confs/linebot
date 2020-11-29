@@ -1,9 +1,9 @@
 import urllib.request as r
 import re
-def yvideo(url):
+def yvideo(url = 'https://www.youtube.com/watch?v=qmeXgtzr-Xg'):
     search_url = 'https://qdownloader.io/download?url={}'.format(r.quote(url))
     # search_url = search_url.replace()
-    print(search_url)
+    # print(search_url)
     # print(search_url.split('/') )
     # print(len(search_url.split('/') ))
     # search_url = "https://qdownloader.io/download?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DqmeXgtzr-Xg"
@@ -27,6 +27,6 @@ def yvideo(url):
 
 
 # search_url = 'https://www.youtube.com/results?search_query={}&sp=EgIQAQ%253D%253D'.format(r.quote(keyword))
-print(yvideo("https://www.youtube.com/watch?v=qmeXgtzr-Xg"))
+# print(yvideo("https://www.youtube.com/watch?v=qmeXgtzr-Xg"))
 # //ytd-video-renderer[1]/div[1]/div/div[1]/div/h3/a
 # //ytd-video-renderer[2]/div[1]/div/div[1]/div/h3/a

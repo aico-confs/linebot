@@ -58,7 +58,7 @@ def handle_message(event):
                 actions=[
                     MessageTemplateAction(
                         label='要入教嗎?',
-                        text='雷姆萬歲'
+                        text='雷姆醒來了，萬歲'
                     )  ,
                         
                     URITemplateAction(

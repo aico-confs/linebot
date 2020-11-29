@@ -48,23 +48,6 @@ def callback():
 
 # 處理訊息
 
-def yvideo(url = 'https://www.youtube.com/watch?v=qmeXgtzr-Xg'):
-    search_url = 'https://qdownloader.io/download?url={}'.format(r.quote(url))
-
-    search_url = "https://qdownloader.io/download?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DqmeXgtzr-Xg"
-
-    request=r.Request(search_url, headers={"user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36"})
-
-    with r.urlopen(request) as response:
-        data=response.read().decode("utf-8")
-    import bs4
-    soup = bs4.BeautifulSoup(data, "html.parser")
-    t = soup.select('.col-md-8 td a' )
-    url = t[0]['href']
-    t = soup.select('.info.col-md-4 img' )
-    img = t[0]['src']
-    url = re.search(r'.*&title',url).group()[:-6]
-    return url,img
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     client_msg = event.message.text
@@ -106,6 +89,24 @@ def handle_message(event):
                              )
         return message
 
+    def yvideo(url='https://www.youtube.com/watch?v=qmeXgtzr-Xg'):
+        search_url = 'https://qdownloader.io/download?url={}'.format(r.quote(url))
+
+        search_url = "https://qdownloader.io/download?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DqmeXgtzr-Xg"
+
+        request = r.Request(search_url, headers={
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36"})
+
+        with r.urlopen(request) as response:
+            data = response.read().decode("utf-8")
+        import bs4
+        soup = bs4.BeautifulSoup(data, "html.parser")
+        t = soup.select('.col-md-8 td a')
+        url = t[0]['href']
+        t = soup.select('.info.col-md-4 img')
+        img = t[0]['src']
+        url = re.search(r'.*&title', url).group()[:-6]
+        return url, img
     to = event.source.user_id
     if "文字" in  event.message.text :
         # line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
@@ -122,7 +123,7 @@ def handle_message(event):
         # preview_image_url是外面看到的
     elif event.message.text == "影片":
 
-        line_bot_api.reply_message(event.reply_token , VideoSendMessage(original_content_url="https://r1---sn-npoe7nes.googlevideo.com/videoplayback?expire=1606682724&ei=BLTDX_u3M8eu8wSG75zIDA&ip=104.153.81.120&id=o-ACeqFyHfFtDZM3O0nX1piTXYiZJAvV4VGyhMxwDbScHR&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ns=cdQoPUV9rspusme6UQtoCqMF&gir=yes&clen=288637785&ratebypass=yes&dur=3624.472&lmt=1567845946653073&fvip=1&c=WEB&txp=2211222&n=JkScnmNUPkFOQYdThEL&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgVbursaocbLzSXdbB3uSV4UkM4Z7zlwfNdXmgpsRabmQCICLdEpMJ53tul_2W6E9tU2leKtZEt4k_XXup5uR5vY4B&redirect_counter=1&cm2rm=sn-p5qe7k7e&req_id=78086c8d6f3da3ee&cms_redirect=yes&mh=WQ&mip=27.52.7.103&mm=34&mn=sn-npoe7nes&ms=ltu&mt=1606662753&mv=m&mvi=1&pl=16&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIgEEZlmZvQw3DMjhCmjPb_Si-OuWTN2Xsx93RvJL4OrHICIQC_4j0qNqMeX-yIrXltdPc2UyUsTFDQpvBCr5ESD76QMw%3D%3D", preview_image_url=yvideo()[1]))
+        line_bot_api.reply_message(event.reply_token , VideoSendMessage(original_content_url=yvideo()[0], preview_image_url=yvideo()[1]))
       
 
  

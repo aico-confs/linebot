@@ -70,7 +70,7 @@ def handle_message(event):
                         text='postback text',
                         data='postback1'
                     ) ,  DatetimePickerTemplateAction(
-                    label="請選擇生日",
+                    label="請選擇日期",
                     # data= ,
                     data = "action = sell& mode=date",
                     mode='datetime',

@@ -11,13 +11,13 @@ from linebot.models import *
 import urllib.request as r
 import re
 
-#======這裡是呼叫的檔案內容=====
+# ======這裡是呼叫的檔案內容=====
 from message import *
 from new import *
 from Function import *
-#======這裡是呼叫的檔案內容=====
+# ======這裡是呼叫的檔案內容=====
 
-#======python的函數庫==========
+# ======python的函數庫==========
 import tempfile, os
 import datetime
 import time
@@ -48,7 +48,7 @@ def callback():
 
 # 處理訊息
 def yvideo(url='https://www.youtube.com/watch?v=qmeXgtzr-Xg'):
-    search_url = 'https://qdownloader.io/download?url={}'.format(r.quote(url))
+    # search_url = 'https://qdownloader.io/download?url={}'.format(r.quote(url))
 
     search_url = "https://qdownloader.io/download?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DqmeXgtzr-Xg"
 
@@ -60,14 +60,14 @@ def yvideo(url='https://www.youtube.com/watch?v=qmeXgtzr-Xg'):
     import bs4
     soup = bs4.BeautifulSoup(data, "html.parser")
     t = soup.select('.col-md-8 td a')
-    url = t[0]['href']
+    yt_url = t[0]['href']
     t = soup.select('.info.col-md-4 img')
-    img = t[0]['src']
-    url = re.search(r'.*&title', url).group()[:-6]
-    return url
+    yt_img = t[0]['src']
+    yt_url = re.search(r'.*&title', url).group()[:-6]
+    return url, img
 
 
-url = yvideo()
+url, img = yvideo()
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     client_msg = event.message.text
@@ -121,7 +121,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text= event.message.text ))
         line_bot_api.push_message(to, bn_message())
     elif event.message.text == "貼圖":
-        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=1, sticker_id=2))
+        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id='1', sticker_id=2))
     elif event.message.text == "圖片":
         line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url="https://cf.shopee.tw/file/ba20f2e96d5f8f6c0b386a077e21a020",
         # original_content_url是點進去看到的

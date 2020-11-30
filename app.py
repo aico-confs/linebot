@@ -67,10 +67,11 @@ def yvideo(url='https://www.youtube.com/watch?v=qmeXgtzr-Xg'):
     return url, img
 
 
-url, img = yvideo()
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     client_msg = event.message.text
+    # url, img = yvideo()
     def bn_message():
         message = TemplateSendMessage(
             alt_text='Buttons Template',

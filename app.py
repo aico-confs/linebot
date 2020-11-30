@@ -106,6 +106,8 @@ def handle_message(event):
         img = t[0]['src']
         url = re.search(r'.*&title', url).group()[:-6]
         return url, img
+
+    utl , img = yvideo()
     to = event.source.user_id
     if "文字" in  event.message.text :
         # line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
@@ -123,9 +125,9 @@ def handle_message(event):
     elif event.message.text == "影片":
 
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
-        y = yvideo()[0]
+
         line_bot_api.reply_message(event.reply_token, TextSendMessage(
-            text= y
+            text= url
         ))
         line_bot_api.reply_message(event.reply_token , VideoSendMessage(original_content_url="https://r1---sn-npoe7nes.googlevideo.com/videoplayback?expire=1606682724&ei=BLTDX_u3M8eu8wSG75zIDA&ip=104.153.81.120&id=o-ACeqFyHfFtDZM3O0nX1piTXYiZJAvV4VGyhMxwDbScHR&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ns=cdQoPUV9rspusme6UQtoCqMF&gir=yes&clen=288637785&ratebypass=yes&dur=3624.472&lmt=1567845946653073&fvip=1&c=WEB&txp=2211222&n=JkScnmNUPkFOQYdThEL&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgVbursaocbLzSXdbB3uSV4UkM4Z7zlwfNdXmgpsRabmQCICLdEpMJ53tul_2W6E9tU2leKtZEt4k_XXup5uR5vY4B&redirect_counter=1&cm2rm=sn-p5qe7k7e&req_id=78086c8d6f3da3ee&cms_redirect=yes&mh=WQ&mip=27.52.7.103&mm=34&mn=sn-npoe7nes&ms=ltu&mt=1606662753&mv=m&mvi=1&pl=16&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIgEEZlmZvQw3DMjhCmjPb_Si-OuWTN2Xsx93RvJL4OrHICIQC_4j0qNqMeX-yIrXltdPc2UyUsTFDQpvBCr5ESD76QMw%3D%3D",
              preview_image_url= "https://i.ytimg.com/vi/qmeXgtzr-Xg/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDgGG59KFN68Wp_T_NdzCgDbYzNkQ"))

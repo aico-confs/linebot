@@ -121,8 +121,9 @@ def handle_message(event):
         preview_image_url="https://i1.kknews.cc/SIG=3d9fkcp/s7300065054s67oqssq.jpg"))
         # preview_image_url是外面看到的
     elif event.message.text == "影片":
-        y = yvideo()[0]
+
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
+        y = yvideo()[0]
         line_bot_api.reply_message(event.reply_token, TextSendMessage(
             text= y
         ))

@@ -43,9 +43,10 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
-
+import youtube as yt
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
+
 def bn_message():
     message = TemplateSendMessage(
         alt_text='Buttons Template',
@@ -88,19 +89,19 @@ def handle_message(event):
     to = event.source.user_id
     if "文字" in  event.message.text :
         # line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
-        line_bot_api.push_message(to,StickerSendMessage(package_id=1, sticker_id=2))
-        line_bot_api.push_message(to,StickerSendMessage(package_id=1, sticker_id=6))
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text= event.message.text ))
+        line_bot_api.push_message(to, StickerSendMessage(package_id=1, sticker_id=2))
+        line_bot_api.push_message(to, StickerSendMessage(package_id=1, sticker_id=6))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text= event.message.text ))
         line_bot_api.push_message(to, bn_message())
     elif event.message.text == "貼圖":
-        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=1, sticker_id=2))
+        line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=1, sticker_id=2))
     elif event.message.text == "圖片":
-        line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url="https://cf.shopee.tw/file/ba20f2e96d5f8f6c0b386a077e21a020",
+        line_bot_api.reply_message(event.reply_token, ImageSendMessage(original_content_url="https://cf.shopee.tw/file/ba20f2e96d5f8f6c0b386a077e21a020",
         # original_content_url是點進去看到的
         preview_image_url="https://i1.kknews.cc/SIG=3d9fkcp/s7300065054s67oqssq.jpg"))
         # preview_image_url是外面看到的
     elif event.message.text == "影片":
-        line_bot_api.reply_message(event.reply_token,VideoSendMessage(original_content_url='https://r1---sn-p5qlsnz6.googlevideo.com/videoplayback?expire=1606645504&ei=oCLDX7TmI6mT8gTgmpzABw&ip=104.153.82.74&id=o-AEheaAOsbvivKRLbe31nK2kkBshdmIWIMjwAbMN_eU-f&itag=18&source=youtube&requiressl=yes&mh=WQ&mm=31%2C26&mn=sn-p5qlsnz6%2Csn-vgqsrne6&ms=au%2Conr&mv=m&mvi=1&pl=22&initcwndbps=1978750&vprv=1&mime=video%2Fmp4&ns=_Ryj-0k9JepCaxkwAd-M9KsF&gir=yes&clen=288637785&ratebypass=yes&dur=3624.472&lmt=1567845946653073&mt=1606623641&fvip=1&beids=9466588&c=WEB&txp=2211222&n=I7Gng2TeI3MR2eFF4ia&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhALtY9A71VYhw4chTeqCZbavJ9ssQ4iGuiZy5LecMwEpyAiB0I1e8LY6UkCLk8a9cDBz_X642B9Px0GRem_-z4txqQg%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIgA4N9fdI0pXcL-rs5bIFE9Zy4zCQX5fUJwE5NPzwfHagCIQDHmKjsU-VPMf4PjxIkQTnjEK1BdJsUusvwVdLatYh87Q%3D%3D', preview_image_url='https://i.ytimg.com/vi/82hTLVg7kYE/maxresdefault.jpg'))
+        line_bot_api.reply_message(event.reply_token,VideoSendMessage(original_content_url=yt.yvideo()[0], preview_image_url =yt.yvideo()[1] ))
       
 
  

@@ -46,45 +46,44 @@ def callback():
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    client_msg = event.message.text
-    def bn_message():
-        message = TemplateSendMessage(
-            alt_text='Buttons Template',
-            template=ButtonsTemplate(
-                title='行事曆',
-                text='雷姆超棒',
-                thumbnail_image_url='https://cf.shopee.tw/file/ba20f2e96d5f8f6c0b386a077e21a020',
-                actions=[
-                    MessageTemplateAction(
-                        label='要入教嗎?',
-                        text='雷姆萬歲'
-                    )  ,
-                        
-                    URITemplateAction(
-                        label='其他教',
-                        uri='https://www.youtube.com/watch?v=ikT1O4plOf4'
-                    )  ,
-                    PostbackTemplateAction(
-                        label='postback',
-                        text='postback text',
-                        data='postback1'
-                    ) ,  DatetimePickerTemplateAction(
+def bn_message():
+    message = TemplateSendMessage(
+        alt_text='Buttons Template',
+        template=ButtonsTemplate(
+            title='行事曆',
+            text='雷姆超棒',
+            thumbnail_image_url='https://cf.shopee.tw/file/ba20f2e96d5f8f6c0b386a077e21a020',
+            actions=[
+                MessageTemplateAction(
+                    label='要入教嗎?',
+                    text='雷姆萬歲'
+                ),
+
+                URITemplateAction(
+                    label='其他教',
+                    uri='https://www.youtube.com/watch?v=ikT1O4plOf4'
+                ),
+                PostbackTemplateAction(
+                    label='postback',
+                    text='postback text',
+                    data='postback1'
+                ), DatetimePickerTemplateAction(
                     label="請選擇生日",
                     # data= ,
-                    data = "action = sell& mode=date",
+                    data="action = sell& mode=date",
                     mode='datetime',
                     initial='1990-01-01T10:00',
                     max='2019-03-10T00:00',
                     min='1930-01-01T23:59'
                 )
 
+            ]
+        )
+    )
+    return message
+def handle_message(event):
+    client_msg = event.message.text
 
-
-                        ]
-            )
-                             )
-        return message
 
     to = event.source.user_id
     if "文字" in  event.message.text :
@@ -173,7 +172,7 @@ def handle_postback(event):
     to = event.source.user_id
     ts = event.postback.data
     dt = event.postback.params.get('datetime')
-    dt = '日期為'+ dt.replace('T',' 時間為：')
+    dt = '日期為'+ dt.replace('T', ' 時間為：')
     # dt = datetime.datetime.strptime(event.postback.params.get('datetime'),'%Y - %m - %dT %H:%M')
     # dt = dt.strftime('{d}%Y - %m - %d ,{t} %H:%M').format(d = '日期為：',t = '時間為：')
     line_bot_api.push_message(to, TextSendMessage(text= "回應是：\n"+dt))

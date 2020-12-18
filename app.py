@@ -56,7 +56,7 @@ def bn_message():
             thumbnail_image_url='https://cf.shopee.tw/file/ba20f2e96d5f8f6c0b386a077e21a020',
             actions=[
                 MessageTemplateAction(
-                    label='要入教嗎?',
+                    label='想要入教嗎?',
                     text='雷姆萬歲'
                 ),
 

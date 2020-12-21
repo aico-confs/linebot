@@ -46,7 +46,7 @@ def callback():
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
-
+import youtube as yt
 
 
 def handle_message(event):
@@ -60,7 +60,7 @@ def handle_message(event):
                 thumbnail_image_url='https://cf.shopee.tw/file/ba20f2e96d5f8f6c0b386a077e21a020',
                 actions=[
                     MessageTemplateAction(
-                        label='要入教嗎?',
+                        label='想要入教嗎?',
                         text='雷姆萬歲'
                     )  ,
 
@@ -104,7 +104,7 @@ def handle_message(event):
         preview_image_url="https://i1.kknews.cc/SIG=3d9fkcp/s7300065054s67oqssq.jpg"))
         # preview_image_url是外面看到的
     elif event.message.text == "影片":
-        line_bot_api.reply_message(event.reply_token,VideoSendMessage(original_content_url='https://r1---sn-p5qlsnz6.googlevideo.com/videoplayback?expire=1606645504&ei=oCLDX7TmI6mT8gTgmpzABw&ip=104.153.82.74&id=o-AEheaAOsbvivKRLbe31nK2kkBshdmIWIMjwAbMN_eU-f&itag=18&source=youtube&requiressl=yes&mh=WQ&mm=31%2C26&mn=sn-p5qlsnz6%2Csn-vgqsrne6&ms=au%2Conr&mv=m&mvi=1&pl=22&initcwndbps=1978750&vprv=1&mime=video%2Fmp4&ns=_Ryj-0k9JepCaxkwAd-M9KsF&gir=yes&clen=288637785&ratebypass=yes&dur=3624.472&lmt=1567845946653073&mt=1606623641&fvip=1&beids=9466588&c=WEB&txp=2211222&n=I7Gng2TeI3MR2eFF4ia&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhALtY9A71VYhw4chTeqCZbavJ9ssQ4iGuiZy5LecMwEpyAiB0I1e8LY6UkCLk8a9cDBz_X642B9Px0GRem_-z4txqQg%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIgA4N9fdI0pXcL-rs5bIFE9Zy4zCQX5fUJwE5NPzwfHagCIQDHmKjsU-VPMf4PjxIkQTnjEK1BdJsUusvwVdLatYh87Q%3D%3D', preview_image_url='https://i.ytimg.com/vi/82hTLVg7kYE/maxresdefault.jpg'))
+        line_bot_api.reply_message(event.reply_token,VideoSendMessage(original_content_url= yt.yvideo()[0], preview_image_url= yt.yvideo()[1]))
 
 
 

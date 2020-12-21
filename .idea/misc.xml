@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8" project-jdk-type="Python SDK" />
+=======
+>>>>>>> Stashed changes
+>>>>>>> 29e4ce78843c4df8d786adea0fa0a7757165f4cd
   <component name="PyCharmProfessionalAdvertiser">
     <option name="shown" value="true" />
   </component>

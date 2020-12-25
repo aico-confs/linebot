@@ -25,7 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea220166-c0fa-4ff8-9ebb-457ab02e02a6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/try2.py" beforeDir="false" afterPath="$PROJECT_DIR$/try2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +51,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../try" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.quicklists" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -88,10 +90,11 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="501" y="86" key="EnvironmentVariablesDialog/0.0.1280.680@0.0.1280.680" timestamp="1606716873273" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1606716970217">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="505" y="116" key="FileChooserDialogImpl" timestamp="1608895501941">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1606716970217" />
+    <state x="505" y="116" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1608895501941" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1606716929000">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

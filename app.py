@@ -102,7 +102,7 @@ def handle_message(event):
 
     elif event.message.text == "影片":
         import youtube as yt
-        line_bot_api.reply_message(event.reply_token,VideoSendMessage(original_content_url= yt.yvideo()[0], preview_image_url= yt.yvideo()[1]))
+        line_bot_api.reply_message(event.reply_token,VideoSendMessage(original_content_url= yt.yvideo()[0], preview_image_url= 'https://i1.kknews.cc/SIG=3d9fkcp/s7300065054s67oqssq.jpg'))
 
 
 

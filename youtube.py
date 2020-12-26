@@ -1,13 +1,10 @@
 import urllib.request as r
 import re
-<<<<<<< HEAD
-def yvideo(url = 'https://www.youtube.com/watch?v=UruY0NAylBU'):
-=======
-def yvideo(url = 'https://www.youtube.com/watch?v=qmeXgtzr-Xg'):
->>>>>>> 29e4ce78843c4df8d786adea0fa0a7757165f4cd
+import bs4
+def yvideo(url):
     search_url = 'https://qdownloader.io/download?url={}'.format(r.quote(url))
     # search_url = search_url.replace()
-    # print(search_url)
+    print(search_url)
     # print(search_url.split('/') )
     # print(len(search_url.split('/') ))
     # search_url = "https://qdownloader.io/download?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DqmeXgtzr-Xg"
@@ -17,10 +14,11 @@ def yvideo(url = 'https://www.youtube.com/watch?v=qmeXgtzr-Xg'):
         data=response.read().decode("utf-8")
     # print(data)
 
-    import bs4 
+
     soup = bs4.BeautifulSoup(data, "html.parser")
     t = soup.select('.col-md-8 td a' )
-    # print(t)
+    print("__________________________")
+    # print(t[0])
     url = t[0]['href']
     t = soup.select('.info.col-md-4 img' )
     # print(t)
@@ -31,10 +29,8 @@ def yvideo(url = 'https://www.youtube.com/watch?v=qmeXgtzr-Xg'):
 
 
 # search_url = 'https://www.youtube.com/results?search_query={}&sp=EgIQAQ%253D%253D'.format(r.quote(keyword))
-<<<<<<< HEAD
 # print(yvideo("https://www.youtube.com/watch?v=qmeXgtzr-Xg")[0])
-=======
-print(yvideo("https://www.youtube.com/watch?v=qmeXgtzr-Xg")[1])
->>>>>>> 29e4ce78843c4df8d786adea0fa0a7757165f4cd
+
+# print(yvideo("https://www.youtube.com/watch?v=qmeXgtzr-Xg"))
 # //ytd-video-renderer[1]/div[1]/div/div[1]/div/h3/a
 # //ytd-video-renderer[2]/div[1]/div/div[1]/div/h3/a

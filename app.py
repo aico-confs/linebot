@@ -86,32 +86,6 @@ def bn_message():
 
 
 @handler.add(MessageEvent, message=TextMessage)
-def yvideo(url):
-    search_url = 'https://qdownloader.io/download?url={}'.format(r.quote(url))
-    # search_url = search_url.replace()
-    print(search_url)
-    # print(search_url.split('/') )
-    # print(len(search_url.split('/') ))
-    # search_url = "https://qdownloader.io/download?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DqmeXgtzr-Xg"
-    request=r.Request(search_url, headers={"user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36"})
-
-    with r.urlopen(request) as response:
-        data=response.read().decode("utf-8")
-    # print(data)
-
-
-    soup = bs4.BeautifulSoup(data, "html.parser")
-    t = soup.select('.col-md-8 td a' )
-    print("__________________________")
-    # print(t[0])
-    url = t[0]['href']
-    t = soup.select('.info.col-md-4 img' )
-    # print(t)
-    img = t[0]['src']
-    url = re.search(r'.*&title',url).group()[:-6]
-    return url,img
-
-@handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     client_msg = event.message.text
     to = event.source.user_id
@@ -130,6 +104,32 @@ def handle_message(event):
         # preview_image_url是外面看到的
 
     elif event.message.text == "影片":
+
+        def yvideo(url):
+            search_url = 'https://qdownloader.io/download?url={}'.format(r.quote(url))
+            # search_url = search_url.replace()
+            print(search_url)
+            # print(search_url.split('/') )
+            # print(len(search_url.split('/') ))
+            # search_url = "https://qdownloader.io/download?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DqmeXgtzr-Xg"
+            request = r.Request(search_url, headers={
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36"})
+
+            with r.urlopen(request) as response:
+                data = response.read().decode("utf-8")
+            # print(data)
+
+            soup = bs4.BeautifulSoup(data, "html.parser")
+            t = soup.select('.col-md-8 td a')
+            print("__________________________")
+            # print(t[0])
+            url = t[0]['href']
+            t = soup.select('.info.col-md-4 img')
+            # print(t)
+            img = t[0]['src']
+            url = re.search(r'.*&title', url).group()[:-6]
+            return url, img
+
         line_bot_api.reply_message(event.reply_token,VideoSendMessage(original_content_url= yt.yvideo()[0], preview_image_url= 'https://i1.kknews.cc/SIG=3d9fkcp/s7300065054s67oqssq.jpg'))
 
 

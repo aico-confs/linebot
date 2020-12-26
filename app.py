@@ -279,7 +279,7 @@ def image_carousel_message1():
                     )
                 ),
                 ImageCarouselColumn(
-                    image_url="https://i.imgur.com/QRIa5Dz.jpg",
+                    image_url="https://images6.alphacoders.com/724/thumb-1920-724058.jpg",
                     action=URITemplateAction(
                         label="雷姆",
                         uri="https://www.youtube.com/watch?v=CTmD3U48p7I"

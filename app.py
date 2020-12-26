@@ -258,31 +258,31 @@ def image_carousel_message1():
         template=ImageCarouselTemplate(
             columns=[
                 ImageCarouselColumn(
-                    image_url="https://i.imgur.com/uKYgfVs.jpg",
+                    image_url="https://images.alphacoders.com/700/thumb-1920-700998.png",
                     action=URITemplateAction(
                         label="跳崖",
-                        uri="https://images.alphacoders.com/700/thumb-1920-700998.png"
+                        uri="https://www.youtube.com/watch?v=bSwbHnBxXa0"
                     )
                 ),
                 ImageCarouselColumn(
-                    image_url="https://i.imgur.com/QOcAvjt.jpg",
+                    image_url="https://images.alphacoders.com/692/thumb-350-692362.png",
                     action=URITemplateAction(
-                        label="愛米利亞",
-                        uri="https://images.alphacoders.com/692/thumb-350-692362.png"
+                        label="愛蜜莉雅 ",
+                        uri="https://www.youtube.com/watch?v=Ud34UfF-BXo"
                     )
                 ),
                 ImageCarouselColumn(
-                    image_url="https://i.imgur.com/Np7eFyj.jpg",
+                    image_url="https://images6.alphacoders.com/718/thumb-1920-718319.png",
                     action=URITemplateAction(
                         label="486",
-                        uri="https://images6.alphacoders.com/718/thumb-1920-718319.png"
+                        uri="https://www.youtube.com/watch?v=pFdyldbdZXA&list=PLYkB1ni_UTnSLysufT4GLsUR7MpAbcJIq&index=14"
                     )
                 ),
                 ImageCarouselColumn(
                     image_url="https://i.imgur.com/QRIa5Dz.jpg",
                     action=URITemplateAction(
                         label="雷姆",
-                        uri="https://images6.alphacoders.com/724/thumb-1920-724058.jpg"
+                        uri="https://www.youtube.com/watch?v=CTmD3U48p7I"
                     )
                 )
             ]
@@ -337,7 +337,7 @@ def handle_message(event):
     elif '圖片畫廊' in client_msg:
         message = test()
         line_bot_api.reply_message(event.reply_token, message)
-    elif '功能列表' in client_msg:
+    elif '零' or '0' in client_msg:
         # message = function_list()
         message = image_carousel_message1()
         line_bot_api.reply_message(event.reply_token, message)

@@ -260,29 +260,29 @@ def image_carousel_message1():
                 ImageCarouselColumn(
                     image_url="https://i.imgur.com/uKYgfVs.jpg",
                     action=URITemplateAction(
-                        label="新鮮水果",
-                        uri="http://img.juimg.com/tuku/yulantu/110709/222-110F91G31375.jpg"
+                        label="跳崖",
+                        uri="https://images.alphacoders.com/700/thumb-1920-700998.png"
                     )
                 ),
                 ImageCarouselColumn(
                     image_url="https://i.imgur.com/QOcAvjt.jpg",
                     action=URITemplateAction(
-                        label="新鮮蔬菜",
-                        uri="https://cdn.101mediaimage.com/img/file/1410464751urhp5.jpg"
+                        label="愛米利亞",
+                        uri="https://images.alphacoders.com/692/thumb-350-692362.png"
                     )
                 ),
                 ImageCarouselColumn(
                     image_url="https://i.imgur.com/Np7eFyj.jpg",
                     action=URITemplateAction(
-                        label="可愛狗狗",
-                        uri="http://imgm.cnmo-img.com.cn/appimg/screenpic/big/674/673928.JPG"
+                        label="486",
+                        uri="https://images6.alphacoders.com/718/thumb-1920-718319.png"
                     )
                 ),
                 ImageCarouselColumn(
                     image_url="https://i.imgur.com/QRIa5Dz.jpg",
                     action=URITemplateAction(
-                        label="可愛貓咪",
-                        uri="https://m-miya.net/wp-content/uploads/2014/07/0-065-1.min_.jpg"
+                        label="雷姆",
+                        uri="https://images6.alphacoders.com/724/thumb-1920-724058.jpg"
                     )
                 )
             ]
@@ -338,7 +338,8 @@ def handle_message(event):
         message = test()
         line_bot_api.reply_message(event.reply_token, message)
     elif '功能列表' in client_msg:
-        message = function_list()
+        # message = function_list()
+        message = image_carousel_message1()
         line_bot_api.reply_message(event.reply_token, message)
     elif'按鈕' in client_msg:
         buttons_template = TemplateSendMessage(

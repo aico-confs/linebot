@@ -99,6 +99,28 @@ def handle_message(event):
         # original_content_url是點進去看到的
         preview_image_url="https://i1.kknews.cc/SIG=3d9fkcp/s7300065054s67oqssq.jpg"))
         # preview_image_url是外面看到的
+    elif event.message.text == "確認":
+        message = {
+            "type": "template",
+            "altText": "在不支援顯示樣板的地方顯示的文字",
+            "template": {
+                "type": "confirm",
+                "text": "標題文字",
+                "actions": [
+                    {
+                        "type": "message",
+                        "label": "第一個按鈕",
+                        "text": "1"
+                    },
+                    {
+                        "type": "message",
+                        "label": "第二個按鈕",
+                        "text": "2"
+                    }
+                ]
+            }
+        }
+        line_bot_api.reply_message(event.reply_token,message)
     #
     # elif event.message.text == "影片":
     #

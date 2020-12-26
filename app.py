@@ -7,7 +7,9 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-
+import urllib.request as r
+import re
+import bs4
 
 #======這裡是呼叫的檔案內容=====
 from message import *

@@ -8,7 +8,9 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-
+import urllib.request as r
+import re
+import bs4
 #======這裡是呼叫的檔案內容=====
 from message import *
 from new import *
@@ -82,9 +84,7 @@ def bn_message():
     )
     return message
 
-import urllib.request as r
-import re
-import bs4
+
 @handler.add(MessageEvent, message=TextMessage)
 def yvideo(url):
     search_url = 'https://qdownloader.io/download?url={}'.format(r.quote(url))
